@@ -18,6 +18,7 @@
     "nib": "^1.1.2",
     "postcss-css-variables": "^0.12.0",
     "poststylus": "^1.0.0",
+    "pug-as-jsx-loader": "^1.1.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "rupture": "^0.7.1",

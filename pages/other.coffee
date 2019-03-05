@@ -1,8 +1,7 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
 
+import template from '../templates/other.pug'
+
 export default ->
-  <Fragment>
-    <p>some text feefdsfdsd</p>
-    <Link href="/"><a>back home</a></Link>
-  </Fragment>
+  template.call(this, {Fragment, Link})

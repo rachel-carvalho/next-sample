@@ -16,6 +16,14 @@ module.exports = withCoffeescript(
           require('postcss-css-variables'),
         ])
       ]
+    },
+    webpack(config, options) {
+      config.module.rules.push({
+        test: /\.(pug)$/,
+        exclude: /node_modules/,
+        loaders: [options.defaultLoaders.babel, 'pug-as-jsx-loader'],
+      })
+      return config
     }
   })
 )
