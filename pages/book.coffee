@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Error from 'next/error'
 
 import template from '../templates/book.pug'
 
@@ -10,10 +11,12 @@ books =[
 class Book extends Component
   @getInitialProps: ({ query, res }) ->
     await book = books.find (b) -> b.isbn == query.isbn
-    res.statusCode = 404 if res && !book
+    res?.statusCode = 404 unless book
     {book}
 
   render: ->
+    unless @props.book
+      return (<Error statusCode={404} />)
     template.call(this, @props.book)
 
 export default Book
