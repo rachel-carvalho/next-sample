@@ -21,7 +21,19 @@ module.exports = withCoffeescript(
       config.module.rules.push({
         test: /\.(pug)$/,
         exclude: /node_modules/,
-        loaders: [options.defaultLoaders.babel, 'pug-as-jsx-loader'],
+        loaders: [
+          options.defaultLoaders.babel,
+          {
+            loader: 'pug-as-jsx-loader',
+            options: {
+              resolveComponents: {
+                Head: 'next/head',
+                Link: 'next/link',
+                WithParams: '../components/with-params'
+              }
+            }
+          }
+        ],
       })
       return config
     }

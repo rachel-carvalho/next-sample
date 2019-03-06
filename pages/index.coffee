@@ -1,6 +1,4 @@
-import { Component, Fragment } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
+import { Component } from 'react'
 
 import template from '../templates/index.pug'
 
@@ -9,6 +7,6 @@ class Home extends Component
     await { origin: (if req then 'srv' else 'client') }
 
   render: ->
-    template.call(this, {@props, Fragment, Head, Link})
+    template.call(this, {@props})
 
 export default Home
