@@ -28,7 +28,6 @@ module.exports = withCoffeescript(
             options: {
               resolveComponents: {
                 Head: 'next/head',
-                Link: 'next/link',
                 WithParams: '../components/with-params'
               }
             }
