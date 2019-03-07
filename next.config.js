@@ -17,6 +17,11 @@ module.exports = withCoffeescript(
         ])
       ]
     },
+    exportPathMap(defaultPathMap) {
+      delete defaultPathMap['/book']
+      defaultPathMap['/books/0553560735'] = {page: '/book', query: {isbn: '0553560735'}}
+      return defaultPathMap
+    },
     webpack(config, options) {
       config.module.rules.push({
         test: /\.(pug)$/,
