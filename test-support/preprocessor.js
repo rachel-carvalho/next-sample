@@ -11,7 +11,13 @@ module.exports = {
         src = coffee.compile(src, { bare: true });
       }
       if (/\.pug$/.test(path)) {
-        src = pugUtils.pugToJsx(src, { template: true }).jsxTemplate
+        src = pugUtils.pugToJsx(src, {
+          template: true,
+          resolve: {
+            'next/head': { name: 'Head' },
+            '../components/with-params': { name: 'WithParams' }
+          }
+        }).jsxTemplate
       }
       return babelJest.process(src, path, config);
     }
