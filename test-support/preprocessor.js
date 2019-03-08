@@ -1,5 +1,6 @@
 const coffee = require('coffeescript');
 const babelJest = require('babel-jest');
+const pugUtils = require('pug-as-jsx-utils');
 
 module.exports = {
   process: (src, path, config) => {
@@ -9,7 +10,9 @@ module.exports = {
       if (coffee.helpers.isCoffee(path)) {
         src = coffee.compile(src, { bare: true });
       }
-      console.log(config);
+      if (/\.pug$/.test(path)) {
+        src = pugUtils.pugToJsx(src, { template: true }).jsxTemplate
+      }
       return babelJest.process(src, path, config);
     }
     return src;

@@ -27,18 +27,28 @@
     "stylus": "^0.54.5"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.3.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "enzyme": "^3.9.0",
-    "jest": "^24.3.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "jest": "^24.3.1",
     "jest-preset-coffeescript": "^1.0.0"
   },
   "jest": {
+    "testRegex": "tests?/.*\\.(coffee)$",
     "moduleFileExtensions": [
       "js",
       "json",
       "jsx",
       "coffee"
     ],
-    "transform": {".*": "<rootDir>/test-support/preprocessor.js"},
-    "setupFiles": ["<rootDir>/test-support/enzyme.js"]
+    "transform": {
+      ".*": "<rootDir>/test-support/preprocessor.js"
+    },
+    "setupFiles": [
+      "<rootDir>/test-support/enzyme.js"
+    ]
   }
 }
