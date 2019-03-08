@@ -1,5 +1,9 @@
+import {shallow} from 'enzyme'
 import voidify from '../../test-support/voidify'
 
-describe 'something', voidify ->
-  it 'works', ->
-    expect(true).toBe true
+import Other from '../../pages/other'
+
+describe 'other page', voidify ->
+  it 'renders', ->
+    other = shallow(<Other />)
+    expect(other.text()).toEqual 'some text (pugged)'
