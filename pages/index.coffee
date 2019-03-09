@@ -7,6 +7,6 @@ class Home extends Component
     await { origin: (if req then 'srv' else 'client') }
 
   render: ->
-    template.call(this, {@props})
+    template.call(this, @props)
 
 export default Home
