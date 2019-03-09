@@ -3,14 +3,14 @@ const babelJest = require('babel-jest');
 const pugUtils = require('pug-as-jsx-utils');
 
 module.exports = {
-  process: (src, path, config) => {
-    if (!/node_modules/.test(path)) {
+  process: (src, file, config) => {
+    if (!/node_modules/.test(file)) {
       // CoffeeScript files need to be compiled by CoffeeScript
       // before being processed by babel
-      if (coffee.helpers.isCoffee(path)) {
+      if (coffee.helpers.isCoffee(file)) {
         src = coffee.compile(src, { bare: true });
       }
-      if (/\.pug$/.test(path)) {
+      if (/\.pug$/.test(file)) {
         src = pugUtils.pugToJsx(src, {
           template: true,
           resolve: {
@@ -19,7 +19,7 @@ module.exports = {
           }
         }).jsxTemplate
       }
-      return babelJest.process(src, path, config);
+      return babelJest.process(src, file, config);
     }
     return src;
   }

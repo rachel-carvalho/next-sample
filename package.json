@@ -34,6 +34,9 @@
   },
   "jest": {
     "testRegex": "tests?/.*\\.test\\.(coffee)$",
+    "moduleNameMapper": {
+      "\\.(css|styl)$": "<rootDir>/test/support/style-mock.js"
+    },
     "moduleFileExtensions": [
       "js",
       "json",
@@ -41,7 +44,7 @@
       "coffee"
     ],
     "transform": {
-      ".*": "<rootDir>/test/support/preprocessor.js"
+      "\\.(js|jsx|pug|coffee)$": "<rootDir>/test/support/preprocessor.js"
     },
     "setupFiles": [
       "<rootDir>/test/support/enzyme.js"
