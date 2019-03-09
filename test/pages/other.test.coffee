@@ -1,5 +1,5 @@
 import {shallow} from 'enzyme'
-import voidify from '../../test-support/voidify'
+import voidify from '../support/voidify'
 
 import Other from '../../pages/other'
 
