@@ -13,3 +13,10 @@ describe 'index page', voidify ->
     it 'adds origin to page title', ->
       index = shallow(<Index origin="something" />)
       expect(index.find('Head title').text()).toEqual 'title now 2 (something)'
+
+  describe '@getInitialProps', voidify ->
+    it 'when req is present, returns srv', ->
+      await expect(Index.getInitialProps(req: {})).resolves.toEqual origin: 'srv'
+
+    it 'when req is absent, returns srv', ->
+      await expect(Index.getInitialProps(lala: 'huhu')).resolves.toEqual origin: 'client'
