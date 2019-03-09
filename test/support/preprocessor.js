@@ -8,7 +8,7 @@ module.exports = {
       // CoffeeScript files need to be compiled by CoffeeScript
       // before being processed by babel
       if (coffee.helpers.isCoffee(file)) {
-        src = coffee.compile(src, { bare: true });
+        src = coffee.compile(src, { bare: true, inlineMap: true, filename: file });
       }
       if (/\.pug$/.test(file)) {
         src = pugUtils.pugToJsx(src, {
