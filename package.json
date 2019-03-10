@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "coffee server.coffee",
     "build": "next build",
-    "start": "NODE_ENV=production coffee server.coffee"
+    "start": "NODE_ENV=production coffee server.coffee",
+    "test": "jest"
   },
   "author": "Rachel Carvalho <rachel.carvalho@gmail.com>",
   "license": "MIT",
@@ -24,5 +25,42 @@
     "react-dom": "^16.8.3",
     "rupture": "^0.7.1",
     "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "babel-jest": "^24.3.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "jest": "^24.3.1"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/support/",
+      "\\.pug"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 0
+      }
+    },
+    "testRegex": "tests?/.*\\.test\\.(coffee)$",
+    "moduleNameMapper": {
+      "\\.(css|styl)$": "<rootDir>/test/support/style-mock.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "coffee"
+    ],
+    "transform": {
+      "\\.(js|jsx|pug|coffee)$": "<rootDir>/test/support/preprocessor.js"
+    },
+    "setupFiles": [
+      "<rootDir>/test/support/enzyme.js"
+    ]
   }
 }
